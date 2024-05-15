@@ -3,7 +3,7 @@ fx_version 'cerulean'
 game 'common'
 
 server_script 'Queue.lua'
-server_script '@frp_core/lib/i18n.lua'
+server_script '@frp_lib/modules/utils/i18n.lua'
 server_script 'locale/*.lua'
 
 
