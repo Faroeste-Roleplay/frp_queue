@@ -140,7 +140,7 @@ function OnTick()
 
         local index = isThereAThrollingPlayer and (realIndex - 1) or realIndex
 
-        local playerId, updateDeferrals, setDeferralsDone, enteredAt in entry
+        local playerId, updateDeferrals, setDeferralsDone, enteredAt, priority in entry
 
         local function keep()
             numKeptEntries += 1
@@ -171,7 +171,7 @@ function OnTick()
             --[[ ClockTime provavelmente vai dar overflow caso passe de 24 horas. ]]
             local clockTime = os.date('!%X', secondsOnQueue)
 
-            updateDeferrals( (i18n.translate("queue_position")):format( index, numEntries, clockTime, isThereAThrollingPlayer and ' Throttled' or '') )
+            updateDeferrals( (i18n.translate("queue_position")):format( index, numEntries, priority, clockTime, isThereAThrollingPlayer and ' Throttled' or '') )
 
             if hasIndexChanged then
                 entry.lastIndex = index
